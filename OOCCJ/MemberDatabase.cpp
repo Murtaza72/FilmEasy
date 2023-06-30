@@ -19,7 +19,7 @@ MemberDatabase::MemberDatabase()
 	memberFile.close();
 }
 
-void MemberDatabase::SaveRecord(Member m)
+void MemberDatabase::SaveRecord(const Member& m)
 {
 	std::ofstream memberFile("Members.txt", std::ios::app);
 
@@ -32,7 +32,7 @@ void MemberDatabase::SaveRecord(Member m)
 	memberFile.close();
 }
 
-bool MemberDatabase::CheckPassword(Member m, std::string password)
+bool MemberDatabase::CheckPassword(const Member& m, std::string password) const
 {
 	if (m.password == password) {
 		return true;

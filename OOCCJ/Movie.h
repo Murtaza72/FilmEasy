@@ -14,7 +14,7 @@ private:
 	void SetDetails();
 
 	friend std::istream& operator>>(std::istream& file, Movie& m);
-	friend std::ostream& operator<<(std::ostream& file, Movie& m);
+	friend std::ostream& operator<<(std::ostream& file, const Movie& m);
 	friend class Theater;
 	friend class Billing;
 };

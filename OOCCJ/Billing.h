@@ -5,5 +5,5 @@
 class Billing
 {
 public:
-	static void PrintReceipt(Ticket t);
+	static void PrintReceipt(const Ticket& t);
 };

@@ -101,7 +101,7 @@ std::istream& operator>>(std::istream& file, Ticket& t)
 	return file;
 }
 
-std::ostream& operator<<(std::ostream& file, Ticket& t)
+std::ostream& operator<<(std::ostream& file, const Ticket& t)
 {
 	file << t.ticketNum << endl;
 	file << t.timeSlot << endl;

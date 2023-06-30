@@ -3,7 +3,7 @@
 
 using std::cin, std::cout, std::endl;
 
-void Billing::PrintReceipt(Ticket t)
+void Billing::PrintReceipt(const Ticket& t)
 {
 	Theater theater;
 	Movie m = theater.GetMovie(t.movieID);

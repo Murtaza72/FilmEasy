@@ -11,8 +11,8 @@ private:
 
 public:
 	MemberDatabase();
-	void SaveRecord(Member m);
+	void SaveRecord(const Member& m);
 	bool Login(std::string name);
-	bool CheckPassword(Member m, std::string password);
+	bool CheckPassword(const Member& m, std::string password) const;
 	void DisplayMemberInformation();
 };

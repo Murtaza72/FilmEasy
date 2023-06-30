@@ -34,7 +34,7 @@ int Booking::CheckSeat(int timeSlot, int mId, int row, int seat)
 	return bookedSeats[timeSlot][mId][row][seat];
 }
 
-void Booking::ReserveSeat(Ticket t)
+void Booking::ReserveSeat(const Ticket& t)
 {
 	std::ofstream booking("Tickets.txt", std::ios::app);
 

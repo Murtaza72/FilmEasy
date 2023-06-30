@@ -47,7 +47,7 @@ std::istream& operator>>(std::istream& file, Member& m)
 	return file;
 }
 
-std::ostream& operator<<(std::ostream& file, Member& m)
+std::ostream& operator<<(std::ostream& file, const Member& m)
 {
 	file << m.accountNumber << endl;
 	file << m.name << endl;

@@ -37,7 +37,7 @@ std::istream& operator>>(std::istream& file, Movie& m)
 	return file;
 }
 
-std::ostream& operator<<(std::ostream& file, Movie& m)
+std::ostream& operator<<(std::ostream& file, const Movie& m)
 {
 	file << m.name << endl;
 	file << m.duration << endl;

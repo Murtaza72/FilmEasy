@@ -12,7 +12,7 @@ private:
 
 private:
 	int CheckSeat(int timeSlot, int mId, int row, int seat);
-	void ReserveSeat(Ticket t);
+	void ReserveSeat(const Ticket& t);
 	void RemoveTicketFromFile(int tNum);
 
 public:

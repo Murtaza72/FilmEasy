@@ -23,7 +23,7 @@ public:
 	void SetDetails(int slot, int mno);
 
 	friend std::istream& operator>>(std::istream& file, Ticket& t);
-	friend std::ostream& operator<<(std::ostream& file, Ticket& t);
+	friend std::ostream& operator<<(std::ostream& file, const Ticket& t);
 	friend class Booking;
 	friend class Billing;
 };

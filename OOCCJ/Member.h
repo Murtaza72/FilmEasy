@@ -16,6 +16,6 @@ public:
 	void Register();
 
 	friend std::istream& operator>>(std::istream& file, Member& m);
-	friend std::ostream& operator<<(std::ostream& file, Member& m);
+	friend std::ostream& operator<<(std::ostream& file, const Member& m);
 	friend class MemberDatabase;
 };
