@@ -14,6 +14,7 @@ private:
 	int CheckSeat(int timeSlot, int mId, int row, int seat);
 	void ReserveSeat(const Ticket& t);
 	void RemoveTicketFromFile(int tNum);
+	void ReloadTicketsFromFile();
 
 public:
 	Booking();

@@ -66,10 +66,25 @@ void Booking::RemoveTicketFromFile(int tNum)
 	temp.close();
 
 	remove("Tickets.txt");
-	rename("temp.txt", "Tickets.txt");
+	int r = rename("temp.txt", "Tickets.txt");
 
 	cout << endl;
 	cout << "TICKET CANCELLED SUCCESSFULLY" << endl << endl;
+}
+
+void Booking::ReloadTicketsFromFile()
+{
+	std::ifstream booking("Tickets.txt", std::ios::in);
+
+	Ticket t;
+	tickets.clear();
+
+	if (booking.is_open()) {
+		while (booking >> t) {
+			tickets.push_back(t);
+		}
+		booking.close();
+	}
 }
 
 void Booking::CancelTicket(int tNum)
@@ -88,6 +103,7 @@ void Booking::CancelTicket(int tNum)
 		if (CheckSeat(t.timeSlot, t.movieID, t.rowNo, t.seatNo) == 1) {
 			bookedSeats[t.timeSlot][t.movieID][t.rowNo][t.seatNo] = 0;
 			RemoveTicketFromFile(tNum);
+			ReloadTicketsFromFile();
 		}
 	}
 	else {
