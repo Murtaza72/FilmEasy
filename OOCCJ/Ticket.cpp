@@ -37,7 +37,8 @@ void Ticket::SetSeat()
 {
 	cout << "Seat No: ";
 	cin >> seatNo;
-	while (seatNo <= 0 || seatNo > 10) {
+	while (seatNo <= 0 || seatNo > 10)
+	{
 		cout << "Enter the correct seat no: ";
 		cin >> seatNo;
 	}
@@ -45,13 +46,16 @@ void Ticket::SetSeat()
 
 void Ticket::SetType()
 {
-	if (rowNo <= 3) {
+	if (rowNo <= 3)
+	{
 		type = "Platinum";
 	}
-	else if (rowNo > 3 && rowNo <= 6) {
+	else if (rowNo > 3 && rowNo <= 6)
+	{
 		type = "Gold";
 	}
-	else if (rowNo > 6 && rowNo <= 10) {
+	else if (rowNo > 6 && rowNo <= 10)
+	{
 		type = "Silver";
 	}
 	cout << "Type: " << type << endl << endl;
@@ -72,7 +76,8 @@ void Ticket::SetTicketNum() { ticketNum = rand() % 99 + 100; }
 std::istream& operator>>(std::istream& file, Ticket& t)
 {
 	std::string temp;
-	try {
+	try
+	{
 		getline(file, temp);
 		t.ticketNum = stoi(temp);
 
@@ -94,7 +99,8 @@ std::istream& operator>>(std::istream& file, Ticket& t)
 		getline(file, t.type);
 		getline(file, temp);
 	}
-	catch (std::exception e) {
+	catch (std::exception e)
+	{
 		//cout << "Exception(in Ticket)" << endl;
 	}
 

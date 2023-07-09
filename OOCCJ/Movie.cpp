@@ -19,7 +19,8 @@ std::istream& operator>>(std::istream& file, Movie& m)
 {
 	std::string temp;
 
-	try {
+	try
+	{
 		getline(file, m.name);
 
 		getline(file, temp);
@@ -30,7 +31,8 @@ std::istream& operator>>(std::istream& file, Movie& m)
 
 		getline(file, temp);
 	}
-	catch (...) {
+	catch (...)
+	{
 		// cout << "Exception(in Movie)" << endl;
 	}
 

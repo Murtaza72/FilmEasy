@@ -13,8 +13,10 @@ Booking::Booking()
 
 	Ticket t;
 
-	if (booking.is_open()) {
-		while (booking >> t) {
+	if (booking.is_open())
+	{
+		while (booking >> t)
+		{
 			bookedSeats[t.timeSlot][t.movieID][t.rowNo][t.seatNo] = 1;
 			tickets.push_back(t);
 		}
@@ -38,13 +40,15 @@ void Booking::ReserveSeat(const Ticket& t)
 {
 	std::ofstream booking("Tickets.txt", std::ios::app);
 
-	if (CheckSeat(t.timeSlot, t.movieID, t.rowNo, t.seatNo) == 0) {
+	if (CheckSeat(t.timeSlot, t.movieID, t.rowNo, t.seatNo) == 0)
+	{
 		booking << t;
 		tickets.push_back(t);
 		bookedSeats[t.timeSlot][t.movieID][t.rowNo][t.seatNo] = 1;
 		Billing::PrintReceipt(t);
 	}
-	else {
+	else
+	{
 		cout << "SEAT IS RESERVED. SELECT ANOTHER SEAT" << endl;
 	}
 }
@@ -55,9 +59,12 @@ void Booking::RemoveTicketFromFile(int tNum)
 	std::ofstream temp("temp.txt", std::ios::out);
 
 	Ticket curr;
-	if (booking.is_open()) {
-		while (booking >> curr) {
-			if (!(curr.ticketNum == tNum)) {
+	if (booking.is_open())
+	{
+		while (booking >> curr)
+		{
+			if (!(curr.ticketNum == tNum))
+			{
 				temp << curr;
 			}
 		}
@@ -75,12 +82,13 @@ void Booking::RemoveTicketFromFile(int tNum)
 void Booking::ReloadTicketsFromFile()
 {
 	std::ifstream booking("Tickets.txt", std::ios::in);
-
 	Ticket t;
 	tickets.clear();
 
-	if (booking.is_open()) {
-		while (booking >> t) {
+	if (booking.is_open())
+	{
+		while (booking >> t)
+		{
 			tickets.push_back(t);
 		}
 		booking.close();
@@ -92,21 +100,26 @@ void Booking::CancelTicket(int tNum)
 	Ticket t;
 	bool flag = false;
 
-	for (int i = 0; i < tickets.size(); i++) {
-		if (tickets[i].ticketNum == tNum) {
+	for (int i = 0; i < tickets.size(); i++)
+	{
+		if (tickets[i].ticketNum == tNum)
+		{
 			t = tickets[i];
 			flag = true;
 		}
 	}
 
-	if (flag) {
-		if (CheckSeat(t.timeSlot, t.movieID, t.rowNo, t.seatNo) == 1) {
+	if (flag)
+	{
+		if (CheckSeat(t.timeSlot, t.movieID, t.rowNo, t.seatNo) == 1)
+		{
 			bookedSeats[t.timeSlot][t.movieID][t.rowNo][t.seatNo] = 0;
 			RemoveTicketFromFile(tNum);
 			ReloadTicketsFromFile();
 		}
 	}
-	else {
+	else
+	{
 		cout << endl;
 		cout << "TICKET DOESN'T EXIST IN OUR DATABASE. DID YOU ENTER THE "
 			"CORRECT TICKET NUMBER?"
@@ -121,17 +134,21 @@ void Booking::DisplayAvailableSeats(int timeSlot, int mId)
 
 	cout << endl << endl;
 	cout << "--------Displaying Seats--------" << endl;
-	for (int i = 1; i <= 10; i++) {
-		if (i <= 3 && skip % 2 == 0) {
+	for (int i = 1; i <= 10; i++)
+	{
+		if (i <= 3 && skip % 2 == 0)
+		{
 			cout << "[Platinum]" << endl;
 			skip++;
 		}
-		else if (i > 3 && i <= 6 && skip % 2 == 1) {
+		else if (i > 3 && i <= 6 && skip % 2 == 1)
+		{
 			cout << endl;
 			cout << "[Gold]" << endl;
 			skip++;
 		}
-		else if (i > 6 && i <= 10 && skip % 2 == 0) {
+		else if (i > 6 && i <= 10 && skip % 2 == 0)
+		{
 			cout << endl;
 			cout << "[Silver]" << endl;
 			skip++;
@@ -139,11 +156,14 @@ void Booking::DisplayAvailableSeats(int timeSlot, int mId)
 		char c = i + 64;
 		cout << c << ": ";
 
-		for (int j = 1; j <= 10; j++) {
-			if (CheckSeat(timeSlot, mId, i, j)) {
+		for (int j = 1; j <= 10; j++)
+		{
+			if (CheckSeat(timeSlot, mId, i, j))
+			{
 				cout << "\t[X]";
 			}
-			else {
+			else
+			{
 				cout << "\t[" << j << "]";
 			}
 		}

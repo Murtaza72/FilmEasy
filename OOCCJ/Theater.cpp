@@ -11,8 +11,10 @@ Theater::Theater()
 
 	int i = 0;
 	Movie m;
-	if (movieFile.is_open()) {
-		while (movieFile.good()) {
+	if (movieFile.is_open())
+	{
+		while (movieFile.good())
+		{
 			movieFile >> m;
 			m.id = i + 1;
 			movies.push_back(m);
@@ -36,7 +38,8 @@ void Theater::AddMovie()
 		movies.pop_back();  // some error causes empty record to be pushed
 	movies.push_back(m);
 
-	for (int i = 0; i < movieNum; i++) {
+	for (int i = 0; i < movieNum; i++)
+	{
 		cout << "\t[" << i + 1 << "] " << movies[i].name << endl;
 	}
 
@@ -50,9 +53,12 @@ void Theater::DeleteMovie(std::string name)
 	std::ofstream temp("temp.txt", std::ios::out);
 
 	Movie curr;
-	if (movieFile.is_open()) {
-		while (movieFile >> curr) {
-			if (!(curr.name == name)) {
+	if (movieFile.is_open())
+	{
+		while (movieFile >> curr)
+		{
+			if (!(curr.name == name))
+			{
 				temp << curr;
 			}
 		}
@@ -67,8 +73,10 @@ void Theater::DeleteMovie(std::string name)
 	movies.clear();
 	int i = 0;
 	Movie m;
-	if (mFile.is_open()) {
-		while (mFile.good()) {
+	if (mFile.is_open())
+	{
+		while (mFile.good())
+		{
 			mFile >> m;
 			m.id = i + 1;
 			movies.push_back(m);
@@ -89,7 +97,8 @@ int Theater::DisplayMovies()
 	cout << endl;
 	cout << "Select a Movie" << endl << endl;
 
-	for (int i = 0; i < movieNum; i++) {
+	for (int i = 0; i < movieNum; i++)
+	{
 		cout << "\t[" << i + 1 << "] " << movies[i].name << endl;
 	}
 
@@ -97,13 +106,16 @@ int Theater::DisplayMovies()
 	cout << "Movie number: ";
 	cin >> choice;
 
-	try {
-		if (choice > 0 && choice <= movieNum) {
+	try
+	{
+		if (choice > 0 && choice <= movieNum)
+		{
 			return choice;
 		}
 		throw choice;
 	}
-	catch (int choice) {
+	catch (int choice)
+	{
 		cout << endl;
 		cout << "INVALID CHOICE(" << choice << "). ENTER CORRECT MOVIE NUMBER." << endl << endl;
 		return -1;
@@ -113,7 +125,8 @@ int Theater::DisplayMovies()
 void Theater::DisplayMovieDetails(int id)
 {
 	int index = id - 1;
-	if (index >= 0) {
+	if (index >= 0)
+	{
 		cout << endl;
 		cout << "--------Movie Details--------" << endl;
 		cout << "Movie Name:\t" << movies[index].name << endl;
@@ -129,7 +142,8 @@ int Theater::DisplayTimeSlots()
 	cout << endl;
 	cout << "Select a time slot" << endl << endl;
 
-	for (int i = 0; i < 5; i++) {
+	for (int i = 0; i < 5; i++)
+	{
 		cout << "\t[" << i + 1 << "] " << timeSlot[i] << ":00 to "
 			<< timeSlot[i + 1] << ":00" << endl;
 	}
@@ -139,13 +153,16 @@ int Theater::DisplayTimeSlots()
 	cin >> choice;
 	cout << endl;
 
-	try {
-		if (choice > 0 && choice <= 5) {
+	try
+	{
+		if (choice > 0 && choice <= 5)
+		{
 			return choice;
 		}
 		throw choice;
 	}
-	catch (int choice) {
+	catch (int choice)
+	{
 		cout << endl;
 		cout << "INVALID CHOICE(" << choice << "). ENTER CORRECT SLOT NUMBER" << endl << endl;
 		return -1;

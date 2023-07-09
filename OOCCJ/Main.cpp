@@ -21,24 +21,29 @@ void Title()
 
 	cout << endl;
 
-	for (int i = 0; i < WIDTH2; i++) {
+	for (int i = 0; i < WIDTH2; i++)
+	{
 		cout << ' ';
 	}
-	for (int i = 0; i < WIDTH1; i++) {
+	for (int i = 0; i < WIDTH1; i++)
+	{
 		cout << '*';
 	}
 
 	cout << endl << endl;
-	for (int i = 0; i < 6; i++) {
+	for (int i = 0; i < 6; i++)
+	{
 		cout << "\t";
 	}
 	cout << heading;
 	cout << endl << endl;
 
-	for (int i = 0; i < WIDTH2; i++) {
+	for (int i = 0; i < WIDTH2; i++)
+	{
 		cout << ' ';
 	}
-	for (int i = 0; i < WIDTH1; i++) {
+	for (int i = 0; i < WIDTH1; i++)
+	{
 		cout << '*';
 	}
 	cout << endl << endl;
@@ -56,7 +61,8 @@ void TicketMenu()
 {
 	int slot, mno, ch = 0;
 
-	while (ch != 3) {
+	while (ch != 3)
+	{
 		Title();
 		cout << endl;
 		cout << "[1] Book a Ticket" << endl;
@@ -65,16 +71,19 @@ void TicketMenu()
 		cout << "Choice: ";
 		cin >> ch;
 
-		switch (ch) {
+		switch (ch)
+		{
 		case 1:
 		{
 			system("cls");
 
 			mno = theater.DisplayMovies();
-			if (mno != -1) {
+			if (mno != -1)
+			{
 				system("cls");
 				slot = theater.DisplayTimeSlots();
-				if (slot != -1) {
+				if (slot != -1)
+				{
 					system("cls");
 					theater.DisplayMovieDetails(mno);
 					booking.DisplayAvailableSeats(slot, mno);
@@ -117,7 +126,8 @@ void CustomerMenu()
 	int choice = 0;
 	string name;
 
-	while (choice != 4) {
+	while (choice != 4)
+	{
 		Title();
 
 		cout << endl;
@@ -128,7 +138,8 @@ void CustomerMenu()
 		cout << "Choice: ";
 		cin >> choice;
 
-		switch (choice) {
+		switch (choice)
+		{
 		case 1:
 		{
 			cout << endl;
@@ -137,7 +148,8 @@ void CustomerMenu()
 			cin >> name;
 			bool logged = db.Login(name);
 
-			if (logged) {
+			if (logged)
+			{
 				TicketMenu();
 			}
 
@@ -183,7 +195,8 @@ void ManagerMenu()
 	string name;
 	Manager m;
 
-	while (choice != 4) {
+	while (choice != 4)
+	{
 		Title();
 
 		cout << endl;
@@ -194,7 +207,8 @@ void ManagerMenu()
 		cout << "Choice: ";
 		cin >> choice;
 
-		switch (choice) {
+		switch (choice)
+		{
 		case 1:
 		{
 			theater.AddMovie();
@@ -238,7 +252,8 @@ int main()
 
 	int choice = 0;
 
-	while (choice != 3) {
+	while (choice != 3)
+	{
 		Title();
 
 		cout << endl;
@@ -248,7 +263,8 @@ int main()
 		cout << "Choice: ";
 		cin >> choice;
 
-		switch (choice) {
+		switch (choice)
+		{
 		case 1:
 		{
 			CustomerMenu();

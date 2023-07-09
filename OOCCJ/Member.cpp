@@ -19,16 +19,19 @@ void Member::SetPassword()
 	std::string temp;
 	int flag = 1;
 
-	while (flag) {
+	while (flag)
+	{
 		cout << "Enter your password: ";
 		cin >> password;
 		cout << "Reenter your password: ";
 		cin >> temp;
-		if (temp != password) {
+		if (temp != password)
+		{
 			cout << "Password does not match" << endl;
 			flag = 1;
 		}
-		else {
+		else
+		{
 			flag = 0;
 		}
 	}

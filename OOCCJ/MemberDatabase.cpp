@@ -10,8 +10,10 @@ MemberDatabase::MemberDatabase()
 	Member member;
 	std::ifstream memberFile("Members.txt", std::ios::in);
 
-	if (memberFile.is_open()) {
-		while (memberFile >> member) {
+	if (memberFile.is_open())
+	{
+		while (memberFile >> member)
+		{
 			members.push_back(member);
 		}
 	}
@@ -23,7 +25,8 @@ void MemberDatabase::SaveRecord(const Member& m)
 {
 	std::ofstream memberFile("Members.txt", std::ios::app);
 
-	if (memberFile.is_open()) {
+	if (memberFile.is_open())
+	{
 		memberFile << m;
 		members.push_back(m);
 		cout << "Record saved successfully" << endl;
@@ -34,7 +37,8 @@ void MemberDatabase::SaveRecord(const Member& m)
 
 bool MemberDatabase::CheckPassword(const Member& m, std::string password) const
 {
-	if (m.password == password) {
+	if (m.password == password)
+	{
 		return true;
 	}
 	return false;
@@ -44,22 +48,27 @@ bool MemberDatabase::Login(std::string name)
 {
 	std::string password;
 	bool logged = false;
-	for (int i = 0; i < members.size(); i++) {
-		if (name == members[i].name) {
+	for (int i = 0; i < members.size(); i++)
+	{
+		if (name == members[i].name)
+		{
 			Member m = members[i];
 			cout << "Password: ";
 			cin >> password;
-			if (CheckPassword(m, password)) {
+			if (CheckPassword(m, password))
+			{
 				logged = true;
 				cout << "Logged In successfully" << endl << endl;
 			}
-			else {
+			else
+			{
 				cout << "WRONG PASSWORD" << endl << endl;
 			}
 			break;
 		}
 	}
-	if (!logged) {
+	if (!logged)
+	{
 		cout << "MEMBER DOESN'T EXIST. SIGNUP FIRST." << endl << endl;
 	}
 	return logged;
@@ -71,7 +80,8 @@ void MemberDatabase::DisplayMemberInformation()
 	cout << "                   MEMBER INFORMATION                    " << endl;
 	cout << "=========================================================" << endl;
 
-	for (int i = 0; i < members.size(); i++) {
+	for (int i = 0; i < members.size(); i++)
+	{
 		cout << "Account Number : " << members[i].accountNumber << endl;
 		cout << "Name           : " << members[i].name << endl;
 		cout << "Phone no.      : " << members[i].phone << endl;

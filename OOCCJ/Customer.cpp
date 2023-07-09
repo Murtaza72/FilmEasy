@@ -22,7 +22,8 @@ void Customer::SetPhone()
 	cout << "Enter your phone number: ";
 	cin >> phone;
 
-	while (phone.length() != 10) {
+	while (phone.length() != 10)
+	{
 		cout << endl;
 		cout << "Phone number should have 10 digits" << endl;
 		cout << "Enter a valid phone number: ";
@@ -37,9 +38,12 @@ void Customer::SetEmail()
 	cout << "Enter your email address: ";
 	cin >> email;
 
-	while (!validEmail) {
-		for (int i = 0; i < email.length(); ++i) {
-			if (email.at(i) == '@') {
+	while (!validEmail)
+	{
+		for (int i = 0; i < email.length(); ++i)
+		{
+			if (email.at(i) == '@')
+			{
 				validEmail = 1;
 				return;
 			}
