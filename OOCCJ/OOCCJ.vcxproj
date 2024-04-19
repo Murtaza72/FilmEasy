@@ -129,27 +129,27 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
-    <ClCompile Include="Billing.cpp" />
-    <ClCompile Include="Booking.cpp" />
-    <ClCompile Include="Customer.cpp" />
-    <ClCompile Include="Manager.cpp" />
-    <ClCompile Include="Member.cpp" />
-    <ClCompile Include="MemberDatabase.cpp" />
-    <ClCompile Include="Movie.cpp" />
-    <ClCompile Include="Main.cpp" />
-    <ClCompile Include="Theater.cpp" />
-    <ClCompile Include="Ticket.cpp" />
+    <ClCompile Include="src\Billing.cpp" />
+    <ClCompile Include="src\Booking.cpp" />
+    <ClCompile Include="src\Customer.cpp" />
+    <ClCompile Include="src\Manager.cpp" />
+    <ClCompile Include="src\Member.cpp" />
+    <ClCompile Include="src\MemberDatabase.cpp" />
+    <ClCompile Include="src\Movie.cpp" />
+    <ClCompile Include="src\Main.cpp" />
+    <ClCompile Include="src\Theater.cpp" />
+    <ClCompile Include="src\Ticket.cpp" />
   </ItemGroup>
   <ItemGroup>
-    <ClInclude Include="Billing.h" />
-    <ClInclude Include="Booking.h" />
-    <ClInclude Include="Customer.h" />
-    <ClInclude Include="Manager.h" />
-    <ClInclude Include="Member.h" />
-    <ClInclude Include="MemberDatabase.h" />
-    <ClInclude Include="Movie.h" />
-    <ClInclude Include="Theater.h" />
-    <ClInclude Include="Ticket.h" />
+    <ClInclude Include="src\Billing.h" />
+    <ClInclude Include="src\Booking.h" />
+    <ClInclude Include="src\Customer.h" />
+    <ClInclude Include="src\Manager.h" />
+    <ClInclude Include="src\Member.h" />
+    <ClInclude Include="src\MemberDatabase.h" />
+    <ClInclude Include="src\Movie.h" />
+    <ClInclude Include="src\Theater.h" />
+    <ClInclude Include="src\Ticket.h" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">
